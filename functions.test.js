@@ -40,3 +40,17 @@ test('Admin should be in usernames', ()=>{
 })
 
 //async data
+test('user fetched todo', () => {
+    expect.assertions(1); //whether .then is called
+    return functions.fetchUser()
+      .then(data => {
+          expect(data.userId).toEqual(1);
+      })
+})
+
+//async await
+test('user fetched todo', async () => {
+    expect.assertions(1); //whether .then is called
+    const data = await functions.fetchUser();
+    expect(data.userId).toEqual(1);
+})
